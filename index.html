@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>To_Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 65%;
+        }
+        
+        #nm1 {
+            font-size: 3rem;
+            font-family: "Platypi", serif;
+        }
+        
+        #nm2 {
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 2rem;
+        }
+        
+        #sp1 {
+            font-family: "Teko", sans-serif;
+        }
+
+        #main1 {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #main2 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        #main3 {
+            min-height: 40%;
+            width: 50%;
+            border-radius: 0.2rem;
+            border: 0.1rem solid rgba(0, 0, 0, 0.262);
+            box-shadow: 0.8rem 0.8rem 1rem rgba(0, 0, 0, 0.451);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 1rem;
+        }
+
+        #main4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 0.8rem 0;
+        }
+
+        #main5 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0.2rem;
+        }
+        
+        #main6 {
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        #main6 div {
+            height: 4rem;
+            width: 100%;
+            font-size: 2rem;
+            padding: 0 1rem;
+            margin: 0.5rem 0;
+            background-color: black;
+            color: white;
+            border-radius: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #main6 div button {
+            width: 8rem;
+            height: 2.5rem;
+            border: 1px solid black;
+            border-radius: 0.2rem;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            font-weight: bolder;
+        }
+
+        #i1 {
+            min-width: 10%;
+            height: 4rem;
+            border: 0.2rem solid rgba(0, 0, 0, 0.517);
+            border-radius: 0.2rem;
+            padding-left: 0.5rem;
+            font-size:2.5rem;
+        }
+        
+        #btn {
+            width: 10rem;
+            height: 4rem;
+            color: white;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 0.2rem;
+            margin-left: 1rem;
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width:600px) {
+            html {
+                font-size: 40%;
+            }
+
+            #main3 {
+                min-height: 15%;
+                width: 60%;
+                margin-top: 1rem;
+            }
+
+            #main6 div {
+                height: 3rem;
+                font-size: 1.3rem;
+            }
+
+            #main6 div button {
+                width: 6rem;
+                height: 2rem;
+            }
+
+            #i1 {
+                min-width: 20%;
+            }
+            
+            #btn {
+                min-width: 10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main1">
+        <div id="main2">
+            <h1 id="nm1">To Do List</h1>
+            <div id="main3">
+                <div id="main4">
+                    <input type="text" id="i1" placeholder="Enter here..." autofocus/>
+                    <button id="btn" onclick="added()">Add</button>
+                </div>
+                <div id="main5">
+                    <h2 id="nm2">List</h2>
+                    <div id="main6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function added() {
+            let data = document.getElementById('i1').value;
+            if (data == '') {
+                alert('Enter Something For Adding')
+            }
+            else {
+                let t1 = document.createElement('div');
+                t1.textContent = data;
+                let d1 = document.querySelector('div#main6');
+                d1.appendChild(t1);
+
+                let t2 = document.createElement('button');
+                t2.textContent = 'Delete';
+                t1.appendChild(t2).addEventListener('click', function (e) {
+                    e.target.parentElement.remove()
+                })
+
+                document.getElementById('i1').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
